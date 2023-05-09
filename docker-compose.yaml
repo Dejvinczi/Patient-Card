@@ -1,15 +1,22 @@
 version: "3.8"
 
+# NETWORKS
+networks:
+  network_1:
+    driver: bridge
+
 # SERVICES
 services:
-
   # DATABASE
   db:
     build: ./db
     ports:
       - "5432:5432"
+    networks:
+      - network_1
     env_file:
       - ./db/.env
+      - ./db/.env.local
     volumes:
       - ./db:/db
       - db_data:/var/lib/postgresql/data/
@@ -19,26 +26,32 @@ services:
     build: ./api
     ports: 
       - "8000:8000"
+    networks:
+      - network_1
     depends_on:
       - db
     env_file:
       - ./api/.env
+      - ./db/.env.local
     volumes:
       - ./api:/api
-    command: ./start.sh
+    command: ["/bin/sh", "start.sh"]
 
   # FRONTEND
   web:
     build: ./web
     ports:
       - "3000:3000"
+    networks:
+      - network_1
     depends_on:
       - api
     env_file:
-      - ./web/.env    
+      - ./web/.env
+      - ./db/.env.local
     volumes:
       - ./web:/web
-    command: ./start.sh
+    command: ["/bin/sh", "start.sh"]
 
 # VOLUMES
 volumes:

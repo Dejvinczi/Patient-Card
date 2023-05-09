@@ -5,12 +5,12 @@
 /api/*/__pycache__/
 
 # Django
-/api/.env
+/api/.env.local
 
 # PostgreSQL
-/db/.env
+/db/.env.local
 
 # React
-/web/.env
+/web/.env.local
 /web/node_modules/
 /web/build/
