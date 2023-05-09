@@ -1,0 +1,16 @@
+# VS Code
+.vscode
+
+# Python
+/api/*/__pycache__/
+
+# Django
+/api/.env
+
+# PostgreSQL
+/db/.env
+
+# React
+/web/.env
+/web/node_modules/
+/web/build/
