@@ -12,4 +12,4 @@ RUN yarn install --frozen-lockfile --parallel
 COPY . .
 
 RUN chmod +x start.sh
-# CMD ["/bin/bash", "start.sh"]
+CMD ["/bin/sh", "start.sh"]

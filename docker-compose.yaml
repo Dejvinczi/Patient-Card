@@ -35,7 +35,7 @@ services:
       - ./db/.env.local
     volumes:
       - ./api:/api
-    command: ["/bin/bash", "start.sh"]
+    command: ["/bin/sh", "start.sh"]
 
   # FRONTEND
   web:
@@ -51,7 +51,7 @@ services:
       - ./db/.env.local
     volumes:
       - ./web:/web
-    command: ["/bin/bash", "start.sh"]
+    command: ["/bin/sh", "start.sh"]
 
 # VOLUMES
 volumes:
